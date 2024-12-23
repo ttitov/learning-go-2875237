@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 func main() {
@@ -14,5 +15,8 @@ func main() {
 
 	floatSum := f1 + f2 + f3
 	fmt.Println("Float sum is ", floatSum)
+
+	floatSum = math.Round(floatSum*100) / 100 //fix precision
+	fmt.Println("This is new sum: ", floatSum)
 
 }
