@@ -15,4 +15,7 @@ func main() {
 
 	fmt.Println(t.Format(time.ANSIC))
 
+	parsedTime, _ := time.Parse(time.ANSIC, "Tue Nov 10 23:00:00 2009")
+	fmt.Printf("Type of parsedTime is %T\n", parsedTime)
+
 }
