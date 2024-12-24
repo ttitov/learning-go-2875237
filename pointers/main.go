@@ -10,4 +10,6 @@ func main() {
 
 	fmt.Println("Some text", *p)
 	fmt.Println("Value of p is", p)
+	fmt.Println("Value of memory p is", &p)
+	fmt.Println("Value of memory intVal is", &intVal)
 }
