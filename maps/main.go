@@ -20,4 +20,7 @@ func main() {
 	states["NY"] = "New York"
 	fmt.Println(states)
 
+	for k, v := range states {
+		fmt.Printf("%v: %v\n", k, v)
+	}
 }
