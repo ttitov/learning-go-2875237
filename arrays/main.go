@@ -14,4 +14,8 @@ func main() {
 	fmt.Println(colors[0])
 	fmt.Println(colors[1])
 
+	var numbers = [5]int{3, 5, 6, 12, 44}
+	fmt.Println(numbers)
+	fmt.Println("The amount of numbers", len(numbers))
+
 }
