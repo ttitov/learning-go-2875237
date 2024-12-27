@@ -38,4 +38,8 @@ func main() {
 	sort.Strings(keys)
 	fmt.Println(keys)
 
+	for i := range keys {
+		fmt.Println(states[keys[i]])
+	}
+
 }
