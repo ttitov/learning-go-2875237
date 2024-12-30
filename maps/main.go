@@ -11,6 +11,7 @@ func main() {
 	states["WA"] = "Washington"
 	states["OR"] = "Oregon"
 	states["CA"] = "California"
+	states["FL"] = "Florida"
 
 	fmt.Println(states)
 	california := states["CA"]
