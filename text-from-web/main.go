@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 	"net/http"
@@ -8,21 +9,34 @@ import (
 
 const url = "https://api.coindesk.com/v1/bpi/currentprice.json"
 
-func main() {
+type Response struct {
+	Bpi map[string]BitcoinPrice `json:"bpi"`
+}
 
+type BitcoinPrice struct {
+	Code string `json:"code"`
+	Rate string `json:"rate"`
+}
+
+func main() {
 	resp, err := http.Get(url)
 	if err != nil {
 		panic(err)
 	}
-
-	fmt.Printf("Some words %T\n", resp)
-
 	defer resp.Body.Close()
 
 	bytes, err := io.ReadAll(resp.Body)
 	if err != nil {
 		panic(err)
 	}
-	content := string(bytes)
-	fmt.Print(content)
+
+	var response Response
+	err = json.Unmarshal(bytes, &response)
+	if err != nil {
+		panic(err)
+	}
+
+	for _, bitPrice := range response.Bpi {
+		fmt.Printf("The price for %v: %v\n", bitPrice.Code, bitPrice.Rate)
+	}
 }
